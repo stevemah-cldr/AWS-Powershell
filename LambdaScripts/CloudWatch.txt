@@ -1,0 +1,9 @@
+Cronjobs:
+
+function: ShutDownAutoOffTagged
+schedule: Everyday 7PM (2AM GMT)
+cron expression: 0 2 * * ? *
+
+function: StartProductionServers
+schedule: Mon-Fri 7AM (2PM GMT)
+cron expression: 0 14 ? * MON-FRI *

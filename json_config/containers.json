@@ -1,0 +1,12 @@
+[
+  {
+    "Description": "Win7 OS Disk",
+    "DeviceName": "0",
+    "Format": "vhd",
+    "SnapshotId": "0",
+    "Url": "string",
+    "UserBucket": {
+      "S3Bucket": "uswest2windowsbasetemplate",
+      "S3Key": "Win7-endnode1.vhd"
+    }
+}]
