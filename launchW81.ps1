@@ -1,8 +1,8 @@
-# Script to Create Windows 10 instances from our custom ami
+# Script to Create Windows 8.1 instances from our custom ami
 
 # Declare Instance Variables
-# ImageID template last update using: Win10
-$ImageId = "ami-0fea2a7fc377c48e8"
+# ImageID template last update using: Win8
+$ImageId = "ami-0a524b4f2b0f8cce7"
 $KeyName = "autonomic-official-id_rsa"
 $InstanceType = "t2.small"
 $SubnetId = "subnet-0f6c04d7b5e8b1946"
@@ -12,7 +12,7 @@ $InstanceName = Read-Host -Prompt 'Input the name of the instance: '
 $Tags = @( @{key="Name";value="$InstanceName"},
            @{key="AutoOff";value="True"},
            @{key="owner";value="$owner"} )
-$UserDataTemplate = 'C:\autonomic_workarea\autonomic-software_producteng\AWS\powershell\deployment_scripts\post_deployment-win10.ps1'
+$UserDataTemplate = 'C:\autonomic_workarea\autonomic-software_producteng\AWS\powershell\deployment_scripts\post_deployment-win81.ps1'
 $UserDataTempFile = Join-Path $env:temp \$InstanceName-post_deployment.ps1
 
 #Make instanceName entry in post_deployment Script

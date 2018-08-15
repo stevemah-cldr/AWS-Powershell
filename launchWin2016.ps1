@@ -1,8 +1,7 @@
-# Script to Create Windows 10 instances from our custom ami
+# Script to Create Windows Server 2016 instances from our custom ami
 
 # Declare Instance Variables
-# ImageID template last update using: Win10
-$ImageId = "ami-0fea2a7fc377c48e8"
+$ImageId = "ami-0e57f270405b2d14e"
 $KeyName = "autonomic-official-id_rsa"
 $InstanceType = "t2.small"
 $SubnetId = "subnet-0f6c04d7b5e8b1946"
@@ -12,7 +11,7 @@ $InstanceName = Read-Host -Prompt 'Input the name of the instance: '
 $Tags = @( @{key="Name";value="$InstanceName"},
            @{key="AutoOff";value="True"},
            @{key="owner";value="$owner"} )
-$UserDataTemplate = 'C:\autonomic_workarea\autonomic-software_producteng\AWS\powershell\deployment_scripts\post_deployment-win10.ps1'
+$UserDataTemplate = 'C:\autonomic_workarea\autonomic-software_producteng\AWS\powershell\deployment_scripts\post_deployment-win2016.ps1'
 $UserDataTempFile = Join-Path $env:temp \$InstanceName-post_deployment.ps1
 
 #Make instanceName entry in post_deployment Script
@@ -41,3 +40,5 @@ $Instances = ($NewInstanceResponse.Instances).InstanceId
 New-EC2Tag -ResourceId $Instances -Tags $Tags
 
 Write-Host "Finished deploying instance: $InstanceName with instanceID $Instances"
+Write-Host "For windows 2016, you will need to manually add this to the ansa.aws domain"
+Write-Host "The default Administrator Password is Tylercat20"
